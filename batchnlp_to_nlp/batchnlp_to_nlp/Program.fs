@@ -38,6 +38,25 @@ type State = {
    least_sentid_in_current_doc : int;
 };;
 
+let assign_sent_docid sents =
+    let rec assign_sent_docid' sents state rs =
+        match sents with
+        | sent :: ss ->
+            match List.rev(sent.words) with
+            | {id=1;word="WKU"} :: ws ->
+                match ws with
+                | w2 :: ws -> 
+                    let new_doc_id = Regex.Replace(w2.word, "[^0-9]", "")
+                    (assign_sent_docid' ss {state with current_doc_id=new_doc_id; least_sentid_in_current_doc=w2.sent_id}
+                    ({sent with doc_id=new_doc_id; least_sentid_in_doc=w2.sent_id}::rs))
+                | _ -> failwith "Error"
+            | ws -> 
+                assign_sent_docid' ss state
+                    ({sent with doc_id=state.current_doc_id; least_sentid_in_doc=state.least_sentid_in_current_doc}::rs)
+        | [] -> rs
+    List.rev (assign_sent_docid' sents {current_doc_id="";least_sentid_in_current_doc=(-1)} [])
+
+
 let _do filename =
     printfn "%s" filename
     let sents =
@@ -64,24 +83,6 @@ let _do filename =
             ) []
          |> List.sortBy (fun sent -> sent.sent_id)
     
-    let assign_sent_docid sents =
-        let rec assign_sent_docid' sents state rs =
-            match sents with
-            | sent :: ss ->
-                match List.rev(sent.words) with
-                | {id=1;word="WKU"} :: ws ->
-                    match ws with
-                    | w2 :: ws -> 
-                        let new_doc_id = Regex.Replace(w2.word, "[^0-9]", "")
-                        (assign_sent_docid' ss {state with current_doc_id=new_doc_id; least_sentid_in_current_doc=w2.sent_id}
-                        ({sent with doc_id=new_doc_id; least_sentid_in_doc=w2.sent_id}::rs))
-                    | _ -> failwith "Error"
-                | ws -> 
-                    assign_sent_docid' ss state
-                        ({sent with doc_id=state.current_doc_id; least_sentid_in_doc=state.least_sentid_in_current_doc}::rs)
-            | [] -> rs
-        List.rev (assign_sent_docid' sents {current_doc_id="";least_sentid_in_current_doc=(-1)} [])
-
     assign_sent_docid sents
     |> List.toSeq
     |> Seq.groupBy (fun sent -> sent.doc_id)
