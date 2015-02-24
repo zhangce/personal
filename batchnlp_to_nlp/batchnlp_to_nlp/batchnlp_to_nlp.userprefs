@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="../nlp_to_sql/nlp_to_sql.fsproj">
+﻿<Properties StartupItem="batchnlp_to_nlp.fsproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.fs">
     <Files>

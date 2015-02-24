@@ -39,6 +39,7 @@ type State = {
 };;
 
 let _do filename =
+    printfn "%s" filename
     let sents =
         System.IO.File.ReadLines(filename)
         |> Seq.map (fun line -> line.Split '\t')
@@ -93,7 +94,16 @@ let _do filename =
 
 [<EntryPoint>]
 let main args = 
-    let rs = Parallel.ForEach(args, (fun j ->
-        _do j
+
+    let rangePartitioner = Partitioner.Create(0, args.Length)
+
+    Parallel.ForEach(rangePartitioner, (fun (r1, r2) ->
+        printfn "%d-%d" r1 r2
+        [r1..(r2-1)]
+        |> List.iter (fun (i:int) -> 
+            let filename = string (args.GetValue(i))
+            _do filename
+        )
     ))
+
     0 
