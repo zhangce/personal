@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "batchnlp_to_nlp", "batchnlp_to_nlp.fsproj", "{4E2485DE-B2D1-4631-B5A6-845381A5C85F}"
+EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "nlp_to_sql", "..\nlp_to_sql\nlp_to_sql.fsproj", "{C42DF867-2D1C-4A8F-8549-166687720DAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E2485DE-B2D1-4631-B5A6-845381A5C85F}.Debug|x86.ActiveCfg = Debug|x86
+		{4E2485DE-B2D1-4631-B5A6-845381A5C85F}.Debug|x86.Build.0 = Debug|x86
+		{4E2485DE-B2D1-4631-B5A6-845381A5C85F}.Release|x86.ActiveCfg = Release|x86
+		{4E2485DE-B2D1-4631-B5A6-845381A5C85F}.Release|x86.Build.0 = Release|x86
+		{C42DF867-2D1C-4A8F-8549-166687720DAD}.Debug|x86.ActiveCfg = Debug|x86
+		{C42DF867-2D1C-4A8F-8549-166687720DAD}.Debug|x86.Build.0 = Debug|x86
+		{C42DF867-2D1C-4A8F-8549-166687720DAD}.Release|x86.ActiveCfg = Release|x86
+		{C42DF867-2D1C-4A8F-8549-166687720DAD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal

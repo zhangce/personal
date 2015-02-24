@@ -1,0 +1,5 @@
+/Users/czhang/Desktop/code/scripts/batchnlp_to_nlp/batchnlp_to_nlp/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/Users/czhang/Desktop/code/scripts/batchnlp_to_nlp/batchnlp_to_nlp/bin/Debug/batchnlp_to_nlp.exe.mdb
+/Users/czhang/Desktop/code/scripts/batchnlp_to_nlp/batchnlp_to_nlp/bin/Debug/batchnlp_to_nlp.exe
+/Users/czhang/Desktop/code/scripts/batchnlp_to_nlp/batchnlp_to_nlp/obj/x86/Debug/batchnlp_to_nlp.exe
+/Users/czhang/Desktop/code/scripts/batchnlp_to_nlp/batchnlp_to_nlp/obj/x86/Debug/batchnlp_to_nlp.exe.mdb
